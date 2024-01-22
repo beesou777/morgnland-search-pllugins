@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="dc4a014e-a719-4bb1-9ab1-788559171019" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/CategoryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/FaqController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/FaqController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/ItemController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/ItemController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/LookBookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/LookBookController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/PropertiesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/PropertiesController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/SearchService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/SearchService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Services/VariantFilterService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Services/VariantFilterService.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="/opt/homebrew/Cellar/php/8.2.5/bin/php">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/symfony/deprecation-contracts" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-client" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2T7MlnemlL6ITqOUoXU8SmuIuiZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/surajthapa/morgenland/38618/397/MorgenlandSearch&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dc4a014e-a719-4bb1-9ab1-788559171019" name="Changes" comment="" />
+      <created>1690389818804</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1690389818804</updated>
+      <workItem from="1690389820043" duration="16000" />
+      <workItem from="1699086101120" duration="5949000" />
+      <workItem from="1699110763251" duration="151000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

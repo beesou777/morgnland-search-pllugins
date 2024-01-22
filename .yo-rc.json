@@ -1,0 +1,14 @@
+{
+  "@plentymarkets/generator-plugin": {
+    "promptValues": {
+      "type": "template"
+    },
+    "answers": {
+      "name": "MorgenlandSearch",
+      "author": "Suraj Thapa",
+      "type": "template",
+      "description": "Search enchancement for product",
+      "version": "0.0.1"
+    }
+  }
+}

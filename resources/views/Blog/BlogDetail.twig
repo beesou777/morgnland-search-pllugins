@@ -1,0 +1,218 @@
+{% extends getPartial('page-design') %}
+
+{% import "Ceres::PageDesign.Macros.LayoutContainer" as LayoutContainer %}
+
+{% block PartialHead %}
+    {% embed getPartial('page-metadata') %}
+        {% block title          data.blog_details.meta_title %}
+        {% block description    data.blog_details.meta_description %}
+        {% block type           "article" %}
+        {% block keywords       data.blog_details.meta_keywords %}
+        {% block robots         "ALL" %}
+    {% endembed %}
+    <link rel="stylesheet" href="{{ plugin_path('mlt') ~ '/css/ceres-category-item.min.css' }}" />
+    <link rel="stylesheet" href="{{ plugin_path('mlt') ~ '/css/ceres-blog-detail.min.css' }}" />
+{% endblock %}
+
+{% block PageBody %}
+<div class="blog-container">
+    <div class="blog-hero-page position-relative">
+        <div class="img-wrapper position-absolute">
+            <img src="{{ data.blog_details.title_image_upload }}" alt="{{ data.blog_details.title }}">
+        </div>
+        <div class="position-absolute blog-content">
+            <h1 class="title">{{ data.blog_details.title }}</h1>
+        </div>
+    </div>
+    <div class="blog-section mx-auto px-3">
+        <ul class="breadcrumb my-4">
+            <li class="breadcrumb-item"><a href="/blog">Blog</a></li>
+            <li class="breadcrumb-item active">{{ data.blog_details.title }}</li>
+        </ul>
+        <div class="blog-content mb-md-5 pb-md-5">
+            {{ data.blog_details.content | raw }}
+        </div>
+        {% if data.blog_details.faqs is not empty %}
+            <div class="accordion-container">
+                <p class="h3 text-center">HÄUFIG GESTELLTE FRAGEN</p>
+                <div class="faqs mt-5">
+                    {% for item in data.blog_details.faqs %}
+                        <div class="accordion-item">
+                            <div class="accordion-title d-flex justify-content-between align-items-center w-100 text-left">
+                                <span class="h5">{{ item.question }}</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="#121926" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                                </svg>
+                            </div>
+                            <div class="content collapse">
+                                {{ item.answer | raw }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <script2>
+                window.addEventListener('load', function () {
+                    const accordionTitles = document.querySelectorAll('.accordion-title');
+                    accordionTitles.forEach(title => {
+                        title.addEventListener('click', () => {
+                            title.classList.toggle('active');
+                            const content = title.nextElementSibling;
+                            content.classList.toggle('collapse');
+                        });
+                    });
+                });
+            </script2>
+        {% endif %}
+        <div class="social-media-section">
+            <p class="h4 text-center">{{ trans("mlt::Page.SocialShare") }}</p>
+            <div class="d-flex flex-row icons">
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ trans('mlt::App.Domain') }}/blog/{{ data.blog_details.category.slug }}/{{ data.blog_details.slug }}" target="_blank" aria-label="Facebook">
+                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                </a>
+                <a href="https://api.whatsapp.com/send?text={{ trans('mlt::App.Domain') }}/blog/{{ data.blog_details.category.slug }}/{{ data.blog_details.slug }}" target="_blank" aria-label="Whatsapp">
+                    <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.pinterest.com/pin/create/button/?url={{ trans('mlt::App.Domain') }}/blog/{{ data.blog_details.category.slug }}/{{ data.blog_details.slug }}" target="_blank" aria-label="Pinterest">
+                    <i class="fa fa-pinterest" aria-hidden="true"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?text={{ trans('mlt::App.Domain') }}/blog/{{ data.blog_details.category.slug }}/{{ data.blog_details.slug }}" target="_blank" aria-label="Twitter">
+                    <i class="fa fa-twitter" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="container-max px-3 py-3">
+        {% if data.related_variants is not empty %}
+        <div class="related-rugs">
+            <h3 class="h3 text-center">{{ trans("mlt::SingleItemPage.RelatedProducts") }}</h3>
+            <div class="category-items-grid mt-3">
+                <ul class="product-list full-width row grid my-2">
+                    {% for item in data.related_variants %}
+                        <li class="product-item">
+                            <article class="product">
+                                <add-to-wish-list :variation-id="{{ item.variant_id }}"></add-to-wish-list>
+                                <div class="product-image">
+                                    <a href="/{{ item.url_path }}" aria-label="{{ item.name }}">
+                                        <lazy-img
+                                            ref="itemLazyImage"
+                                            image-url="{{ item.image_preview_url }}"
+                                            alt="{{ item.name }}"
+                                            title="{{ item.name }}"
+                                        ></lazy-img>
+                                    </a>
+                                </div>
+                                <div class="product-content mt-2">
+                                    <a href="/{{ item.url_path }}" class="product-title h5">{{ item.name }}</a>
+                                    <div class="product-prices my-2">
+                                        <span class="h4 discount-price">{{ item.price | round }} {{ config('mlt.mlt.domainCurrencyFormat') }}</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {% endif %}
+        <div class="row newsletter-section position-relative m-0 my-4">
+            <img class="position-absolute p-0 d-none d-lg-block coupon-percent-img" width="100px" height="100px" src="https://cdn02.plentymarkets.com/6wg68w8zahno/frontend/assets/icons/newsletter-discount-icon.webp" alt="Newsletter Discount Icon">
+            <div class="col-lg-5 col-sm-12 p-lg-5">
+                <p class="h2 mx-auto h-100 my-3">{{ trans("mlt::Page.CouponCodeNewsletter") }}</p>
+            </div>
+            <div class="col-lg-7 col-sm-12 px-lg-5 py-lg-5">
+                <newsletter-input :show-name-inputs="false" :show-privacy-policy-checkbox="true" :email-folder="40" />
+            </div>
+        </div>
+        {% if data.related_blogs is not empty %}
+            <div class="related-blogs py-md-5 my-md-3">
+                <h3 class="h3 text-center">{{ trans("mlt::Page.RelatedBlogs") }}</h3>
+                <div class="row blog-list mt-3">
+                    {% for item in data.related_blogs %}
+                        {% if item.category is defined %}
+                            <div class="col-md-4 col-lg-3 col-sm-12 py-2">
+                                <a href="/blog/{{ item.category.slug }}/{{ item.slug }}" class="blog-item">
+                                    <div class="img-wrapper">
+                                        <img src="{{ item.featured_image }}" class="img-fluid" alt="{{ item.item.feature_image_alt_text ? item.title : item.feature_image_alt_text }}" loading="lazy" />
+                                    </div>
+                                    <p class="title mb-0 pt-2">{{ item.title }}</p>
+                                    <p class="time small mb-0">{{ item.updated_at|date("j M, Y") }}</p>
+                                </a>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endif %}
+    </div>
+    {% if data.blog_details.faqs is not empty %}
+        <script id="faq-schema" type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {% for item in data.blog_details.faqs %}
+                {
+                    "@type": "Question",
+                    "name": "{{ item.question }}",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "{{ item.answer }}"
+                    }
+                }{% if not loop.last %},{% endif %}
+                {% endfor %}
+            ]
+        }
+        </script2>
+    {% endif %}
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "/blog/{{ data.blog_details.slug }}"
+        },
+        "headline": "{{ data.blog_details.title }}",
+        "description": "{{ data.blog_details.meta_description }}",
+        "image": "{{ data.blog_details.featured_image }}",
+        "author": {
+            "@type": "Person",
+            "name": "{{ data.blog_details.author }}"
+        },
+        "datePublished": "{{ data.blog_details.updated_at }}",
+        "dateModified": "{{ data.blog_details.updated_at }}",
+        "publisher": {
+            "@type": "Organization",
+            "name": "{{ trans('mlt::App.CompanyName') }}",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "{{ trans('mlt::App.Logo') }}"
+            }
+        }
+    }</script>
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Category",
+                "item": "Blog"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Subcategory",
+                "item": "{{ data.blog_details.slug }}"
+            }
+        ]
+    }</script>
+</div>
+{% endblock %}

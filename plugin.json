@@ -1,0 +1,17 @@
+{
+  "name": "MorgenlandSearch",
+  "namespace": "MorgenlandSearch",
+  "type": "template",
+  "version": "0.0.1",
+  "pluginIcon": "icon_plugin_xs.png",
+  "description": "Search enchancement for product",
+  "platform": {
+    "php": ">=7.3 <8.1"
+  },
+  "dependencies": {
+    "guzzlehttp/guzzle": "^7.7"
+  },
+  "author": "Suraj Thapa Magar",
+  "authorIcon": "icon_author_xs.png",
+  "serviceProvider": "MorgenlandSearch\\Providers\\MorgenlandSearchServiceProvider"
+}
